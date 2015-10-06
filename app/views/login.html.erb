@@ -1,0 +1,38 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %>  from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+<table class="table">
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password_digest %><br>
+    <%= f.text_field :password_digest %>
+  </div>
+  <input type="checkbox" name="teacher" id="teacher_field"></input>
+  <label for="teacher_field">Teacher</label>
+  <input type="checkbox" name="Parent" id="parent_field"></input>
+  <label for="parent_field">Parent</label>
+  <input type="checkbox" name="Student" id="student_field"></input>
+  <label for="student_field">Student</label>
+  <% end %>
+</table>
+  <div class="actions">
+    <%= f.submit link_to 'Index', index_path(id) %> #WORK LINK TO
+  </div>
+<% end %>
