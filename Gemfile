@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'sass', '~> 3.4.1'
+gem 'compass', '~> 1.0.1', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record

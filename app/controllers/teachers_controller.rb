@@ -21,12 +21,15 @@ class TeachersController < ApplicationController
 
   # POST /teachers
   def create
-    @teacher = Teacher.new(teacher_params)
+    user = User.find_by(email: params[:session][:email].downcase)
 
-    if @teacher.save
-      redirect_to @teacher, notice: 'Teacher was successfully created.'
+    if user && user.authenticate(params[:session][:password]) #log user in
+      log_in user
+      redirect_to user
     else
-      render :new
+      #create error msg
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
     end
   end
 
