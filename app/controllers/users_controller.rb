@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   # GET /students
   def index
     @user = User.find(params[:id])
-    byebug
   end
 
   # # GET /students/1

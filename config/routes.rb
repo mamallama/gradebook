@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  post 'sessions/create'
-  delete 'sessions/destroy'
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
+  get 'dashboard' => 'dashboards#show'
 
   resources :students
   resources :teachers
+  resources :assignments
+  resources :parents
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

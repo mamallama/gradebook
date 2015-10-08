@@ -14,7 +14,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
+.navbar-brand {
+  font: helvetica;
+  font-size: 2em;
+}
  aside {
    section.user_info {
      margin-top: 20px;
