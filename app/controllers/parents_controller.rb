@@ -54,6 +54,6 @@ class ParentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def parent_params
-      params.require(:parent).permit(:name, :email, :password_digest, :student_id)
+      params.require(:parent).permit(:name, :email, :password, :student_id)
     end
 end
