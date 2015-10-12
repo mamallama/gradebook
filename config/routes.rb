@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :students
   resources :teachers
 
-  root    'gradebooks#dashboard'
+  root    'dashboards#show'
   get     'login'   =>  'sessions#new'
   post    'login'   =>  'sessions#create'
   delete  'logout'  =>  'sessions#destroy'
