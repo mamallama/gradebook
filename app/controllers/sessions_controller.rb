@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
 #updated if statement of doom. Think I need something with case. LOOK INTO.
   def create
-    case
+    case params[session][:user_id]
     when "teacher"
       teacher = Teacher.find_by_email(set_params[:email])
         if teacher && teacher.authenticate(set_params[:password])

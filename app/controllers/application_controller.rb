@@ -12,8 +12,8 @@ private
   end
 
   def teacher?
-    redirect_to grades_path, notice: "You do not have access to do that." if session[:account_type] == "student"
-    redirect_to grades_path, notice: "You do not have access to do that." if session[:account_type] == "parent"
+    redirect_to grades_path, notice: "Nope. Who are you kidding?" if session[:account_type] == "student"
+    redirect_to grades_path, notice: "Sorry, you don't have access to that." if session[:account_type] == "parent"
   end
 
   def logged_in_teacher
