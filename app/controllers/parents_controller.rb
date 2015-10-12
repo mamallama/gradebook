@@ -1,7 +1,7 @@
 class ParentsController < ApplicationController
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
 
-  before_action :logged_in_parent
+  before_action :logged_in?
   # GET /parents
   def index
     @parents = Parent.all
@@ -12,8 +12,10 @@ class ParentsController < ApplicationController
   end
 
   # GET /parents/new
-  def new
+  def new #NEED LINK TO STUDENT
     @parent = Parent.new
+    @parent.student = Student.find(params[:format])
+
   end
 
   # GET /parents/1/edit

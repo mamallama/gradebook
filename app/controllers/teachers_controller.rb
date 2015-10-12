@@ -21,7 +21,7 @@ class TeachersController < ApplicationController
 
   # POST /teachers
   def create
-    @teacher = Teacher.new(student_params)
+    @teacher = Teacher.new(teacher_params)
 
     if @teacher.save
       redirect_to @teacher, notice: 'Teacher was successfully created.'
@@ -54,6 +54,6 @@ class TeachersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def teacher_params
-      params.require(:teacher).permit(:name, :email, :password)
+      params.require(:teacher).permit(:name, :email, :password, :student_id)
     end
 end

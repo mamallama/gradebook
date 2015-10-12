@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :logged_in
+  before_action :teacher?, except: [:edit, :update, :show]
+
   # GET /students
   def index
     @students = Student.all
