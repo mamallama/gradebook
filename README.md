@@ -1,6 +1,6 @@
 The following actions should possible for the following types of users:
 
-- Visitors who have not logged in should only see the login page.
+X Visitors who have not logged in should only see the login page.
 - Teachers who have logged in should be able to:
   - Create teachers
   - Create students

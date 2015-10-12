@@ -1,29 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Teachers</h1>
+  <h1>Listing Teachers</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <% @teachers.each do |teacher| %>
+        <h3> <%= teacher.name %> | <%= teacher.email %> </h3>
+        <p>
+          <%= link_to 'Show Teacher Info', teacher %> |
+          <%= link_to 'Edit Teacher Info', edit_teacher_path(teacher) %> |
+          <%= link_to 'Destroy Teacher', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th colspan="5"></th>
+            </tr>
+          </thead>
+        <% teacher.students.each do |student| %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= link_to 'Add Parent', new_parent_path(student) %></td>
+            <td><%= link_to 'Add Grade', new_grade_path(student) %></td>
+            <td><%= link_to 'Show', student %></td>
+            <td><%= link_to 'Edit', edit_student_path(student) %></td>
+            <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        <%= link_to 'Add a new student to this class', new_student_path(teacher) %>
+      <% end %>
+    </tbody>
+  </table>
 
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.email %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <br>
 
-<br>
-<%= link_to 'New Student', new_student_path %>
-<%= link_to 'New Teacher', new_teacher_path %>
-<%= link_to 'New Assignment', new_assignment_path %>
+  <%= link_to 'New Teacher', new_teacher_path %> | <%= link_to 'Logout', logout_path, method: "delete" %>

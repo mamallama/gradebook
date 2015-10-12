@@ -11,8 +11,22 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.submit "Log In", class: "btn btn-info" %>
+      <p id="account_type"> Account Type </p>
 
+  <div class="field">
+    <%= f.radio_button :account_type, 'teacher' %>
+    <%= label :account_type_teacher, 'Teacher' %>
+
+    <%= f.radio_button :account_type, 'student' %>
+    <%= label :account_type_teacher, 'Student' %>
+
+    <%= f.radio_button :account_type, 'parent' %>
+    <%= label :account_type_teacher, 'Parent' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log In" %>
+  </div>
     <% end %>
 
   </div>

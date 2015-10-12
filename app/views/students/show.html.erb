@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Teacher:</strong>
+  <%= @student.teacher.name %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @student.name %>
 </p>
@@ -8,26 +13,6 @@
 <p>
   <strong>Email:</strong>
   <%= @student.email %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @student.password_digest %>
-</p>
-
-<p>
-  <strong>Teacher:</strong>
-  <%= @student.teacher_id %>
-</p>
-
-<p>
-  <strong>Grade:</strong>
-  <%= @student.grade_id %>
-</p>
-
-<p>
-  <strong>Assignment:</strong>
-  <%= @student.assignment_id %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
