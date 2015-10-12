@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   end
 
+#updated if statement of doom. Think I need something with case. LOOK INTO.
   def create
     case
     when "teacher"
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
 
           redirect_to teachers_path, notice: "Logged in."
         else
-          redirect_to login_path, alert: "Login failed. Invalid email/password."
+          redirect_to login_path, alert: "Login failed. Invalid email/password combination."
         end
     when "student"
       student = Student.find_by_email(set_params[:email])
@@ -20,7 +21,7 @@ class SessionsController < ApplicationController
         session[:user_id] = student.id
         redirect_to grades_path, notice: "Logged in."
       else
-        redirect_to login_path, alert: "Login failed. Invalid email/password."
+        redirect_to login_path, alert: "Login failed. Invalid email/password combination."
       end
     when "parent"
       parent = Parent.find_by_email(set_params[:email])
@@ -28,7 +29,7 @@ class SessionsController < ApplicationController
         session[:user_id] = parent.id
         redirect_to grades_path, notice: "Logged in."
       else
-        redirect_to login_path, alert: "Login failed. Invalid email/password."
+        redirect_to login_path, alert: "Login failed. Invalid email/password combination."
       end
     end
     session[:account_type] = params[:sessions][:account_type]
